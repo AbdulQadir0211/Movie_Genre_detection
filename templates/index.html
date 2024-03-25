@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Genre Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Genre Classification</h1>
+        <form action="/predict" method="post">
+            <textarea name="plot" rows="4" cols="50" placeholder="Enter the plot of the movie...">{{ plot_text }}</textarea>
+            <button type="submit">Predict Genre</button>
+        </form>
+        {% if predicted_genre %}
+        <div class="result">
+            <h2>Predicted Genre:</h2>
+            <p>{{ predicted_genre }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
